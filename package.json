@@ -1,0 +1,9 @@
+{
+  "name": "taste-buds-review-api",
+  "version": "1.0.0",
+  "description": "An api for the reviews for tastebuds food blog",
+  "main": "index.js",
+  "repository": "https://github.com/jamiebrown201/taste-buds-review-api.git",
+  "author": "Jamie & Erika",
+  "license": "MIT"
+}
