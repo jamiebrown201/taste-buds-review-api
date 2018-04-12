@@ -1,5 +1,10 @@
 "use strict";
 
+const uuid = require("uuid");
+const AWS = require("aws-sdk");
+
+const dynamoDb = new AWS.DynamoDB.DocumentClient();
+
 module.exports.create = (event, context, callback) => {
   const response = {
     statusCode: 200,
