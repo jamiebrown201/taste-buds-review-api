@@ -40,14 +40,28 @@ resources:
           -
             AttributeName: ReviewId
             AttributeType: S
+          -
+            AttributeName: DoIt
+            AttributeType: BOOL
         KeySchema:
           -
-            AttributeName: id
+            AttributeName: TubeId
             KeyType: HASH
           -
-            AttributeName: id
+            AttributeName: ReviewId
             KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+        LocalSecondaryIndexes:
+        - IndexName: DoItIndex
+          KeySchema:
+          - AttributeName: TubeId
+            KeyType: HASH
+          - AttributeName: DoIt
+            KeyType: RANGE
+          Projection:
+            ProjectionType: KEYS_ONLY
         TableName: ${self:provider.environment.REVIEWS_TABLE}
+
+
