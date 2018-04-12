@@ -19,5 +19,11 @@ provider:
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.REVIEWS_TABLE}"
 
 functions:
-  hello:
-    handler: reviews/handler.hello
+  reviewsCreate:
+    handler: reviews/create.create
+    events:
+      - http:
+          path: events
+          method: post
+          cors: true
+
